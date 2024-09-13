@@ -3,7 +3,7 @@ using PracticeRestFulApiDemo.Models;
 
 namespace PracticeRestFulApiDemo.Services
 {
-    public class BookingService
+    public class BookingService : IBookingService
     {
         private readonly BookingContext _bookingContext = new BookingContext();
         public List<Details> GetAllBookings()
@@ -18,7 +18,7 @@ namespace PracticeRestFulApiDemo.Services
         }
         public bool DeleteBooking(int id)
         {
-           var v =  _bookingContext.BookingDetails.Find(id);
+            var v = _bookingContext.BookingDetails.Find(id);
             if (v != null)
             {
                 _bookingContext.BookingDetails.Remove(v);

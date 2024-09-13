@@ -11,7 +11,11 @@ namespace PracticeRestFulApiDemo.Controllers
     public class BookingController : ControllerBase
     {
         // GET: api/<BookingController>
-        private readonly BookingService _bookingService = new BookingService();
+        private readonly IBookingService _bookingService;
+        public BookingController(IBookingService booking)
+        {
+            _bookingService = booking;
+        }
         [HttpGet]
         public IEnumerable<Details> Get()
         {

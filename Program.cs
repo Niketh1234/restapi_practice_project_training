@@ -1,3 +1,5 @@
+using PracticeRestFulApiDemo.Services;
+
 namespace PracticeRestFulApiDemo
 {
     public class Program
@@ -9,7 +11,7 @@ namespace PracticeRestFulApiDemo
             // Add services to the container.
 
             builder.Services.AddControllers();
-
+            builder.Services.AddScoped<IBookingService,BookingService>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
